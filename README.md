@@ -1,10 +1,27 @@
 # projeto_listcontatos_final
 
 A new Flutter project.
+Lista de Contatos – Flutter
+Funcionalidades:
+- Cadastrar contato (nome, email, telefone)
+- Selecionar foto da galeria
+- Armazenamento local com **Hive**
+- Upload de imagem para **Back4App**
+- Salvamento apenas da **URL / path da imagem**
+- Funcionamento **offline-first**
+- Remover contatos da lista
+- Exibição automática da imagem:
+- Local (`FileImage`)
+- Online (`NetworkImage`)
 
-## Getting Started
+Tecnologias Utilizadas:
+.Flutter
+.Dart
+.Hive (armazenamento local)
+.Back4App (Parse Server)
+.image_picker
+.path_provider
 
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
