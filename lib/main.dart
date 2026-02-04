@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:projeto_listcontatos_final/model/model_contatos.dart';
-import 'package:projeto_listcontatos_final/pages/list_page.dart';
+import 'package:projeto_listcontatos_final/presentation/controllers/contato_provider.dart';
+import 'package:projeto_listcontatos_final/presentation/pages/list_page.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +17,10 @@ void main() async {
       clientKey: 'VckW7d7FaPDY2yM4V2ZcaC9MB1ukGDS7ObGQSvQx',
       autoSendSessionId: true);
 
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => ContatoProvider())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,8 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-          scaffoldBackgroundColor: Color.fromARGB(255, 152, 118, 180)),
+      theme: ThemeData(scaffoldBackgroundColor: Color(0xFFD6BAEE)),
       home: ListPage(),
     );
   }

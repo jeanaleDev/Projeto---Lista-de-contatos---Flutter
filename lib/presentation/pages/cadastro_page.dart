@@ -65,24 +65,27 @@ class _CadastroPageState extends State<CadastroPage> {
               height: 14,
             ),
             Card(
+                elevation: 4,
                 child: TextFormField(
-              controller: nomectrl,
-              decoration: InputDecoration(
-                  labelText: 'Nome',
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12))),
-            )),
+                  controller: nomectrl,
+                  decoration: InputDecoration(
+                      labelText: 'Nome',
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12))),
+                )),
             Card(
+                elevation: 4,
                 child: TextFormField(
-              controller: emailctrl,
-              decoration: InputDecoration(
-                  labelText: 'Email',
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12))),
-            )),
+                  controller: emailctrl,
+                  decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12))),
+                )),
             Card(
+              elevation: 4,
               child: TextFormField(
                 controller: phonectrl,
                 decoration: InputDecoration(

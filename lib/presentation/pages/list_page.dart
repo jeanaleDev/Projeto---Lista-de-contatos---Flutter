@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:projeto_listcontatos_final/model/model_contatos.dart';
-import 'package:projeto_listcontatos_final/pages/cadastro_page.dart';
-import 'package:projeto_listcontatos_final/repository/contatos_repository.dart';
+import 'package:projeto_listcontatos_final/presentation/controllers/contato_provider.dart';
+import 'package:projeto_listcontatos_final/presentation/pages/cadastro_page.dart';
+import 'package:provider/provider.dart';
 
 class ListPage extends StatefulWidget {
   const ListPage({super.key});
@@ -13,11 +14,10 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  final repos = ContatosRepository();
-
   @override
   Widget build(BuildContext context) {
-    final contatos = repos.getAll();
+    final controller = context.watch<ContatoProvider>();
+    final contatos = controller.contatos;
     return Scaffold(
       appBar: AppBar(
           elevation: 2,
@@ -54,9 +54,8 @@ class _ListPageState extends State<ListPage> {
                       title: Text(contato.email),
                       subtitle: Text(contato.phone),
                       trailing: IconButton(
-                          onPressed: () async {
-                            await contatos[index].delete();
-                            setState(() {});
+                          onPressed: () {
+                            controller.removerContato(contato);
                           },
                           icon: Icon(
                             Icons.delete,
@@ -75,8 +74,7 @@ class _ListPageState extends State<ListPage> {
                 builder: (_) => CadastroPage(),
               ));
           if (contato != null) {
-            await repos.add(contato);
-            setState(() {});
+            context.read<ContatoProvider>().adicionarContato(contato);
           }
         },
         child: Icon(Icons.add),

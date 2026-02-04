@@ -31,7 +31,3 @@ class ContatosRepository {
     } catch (_) {}
   }
 }
-
-Future<void> deleteContato(ModelContatos contato) async {
-  await deleteContato(contato);
-}
